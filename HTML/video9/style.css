@@ -1,0 +1,16 @@
+.red{
+    color: #ff0000;
+}
+#heading1{
+    background-color: yellow;
+}
+.blue{
+    color: blue;
+}
+#para{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(223, 176, 166);
+}
+.big{
+    font-size: large;
+}

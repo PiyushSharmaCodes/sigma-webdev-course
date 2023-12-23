@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /* Element Selector */
+        div{
+            background-color: red;
+        }
+        /* Class Selector */
+        .white{
+            color: white;
+        }
+        /* Id selector */
+        #blue{
+            color: blue;
+            background-color: yellow;
+        }
+        /* Child Selector */
+        div > p{
+            color: gold;
+            background-color:aqua;
+        }
+        /* Descendent Selector */
+        div p{
+            color:blueviolet;
+        }
+        /* Pseudo Selector */
+        p:hover{
+            background-color: aliceblue;
+        }
+        </style>
+</head>
+<body>
+    <div class="white">This is div
+        <aside><p>This is paragraph which is not a direct child of div</p></aside>
+    </div>
+    <div id="blue">This is another div </div>
+    <div>
+        <p>I am a Paragraph inside a div</p>
+    </div>
+</body>
+</html>
