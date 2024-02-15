@@ -4,8 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Sizing</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            box-sizing: border-box;
+            border: 2px solid blueviolet;
+            width: 80vw;
+            height: 10vh;
+            background-color: green;
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        .box2{
+            box-sizing: border-box;
+            border: 2px solid magenta;
+            height: 40vh;
+            width: 80vw;
+            margin: 10px auto;
+            background-color: yellow;
+            padding: 10px;
+        }
+        .box3{
+            box-sizing: border-box;
+            border: 2px solid magenta;
+            /* height: 80vh; */
+            min-height: 10vh;
+            max-height: 100px;
+            width: 80vmax;
+            margin: 10px auto;
+            background-color: rgb(255, 60, 0);
+            padding: 10px;
+        }
+        .box4{
+            box-sizing: border-box;
+            border: 2px solid magenta;
+            height:40vh;
+            width: 80vmax;
+            margin: 10px auto;
+            background-color: rgb(255, 60, 0);
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="box">This is a sample box</div>
+    <div class="box2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias modi facere ut necessitatibus excepturi. Atque obcaecati, unde labore totam distinctio fugit. Officia iure perferendis, repellat omnis molestias aspernatur pariatur harum cumque a ipsum animi commodi, nostrum facere ratione veniam repellendus doloribus. Dolore rerum minus, consequatur neque voluptate explicabo, esse facere atque tempore voluptatum cum debitis!</div>
+    <div class="box3">Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis, quisquam nemo dolore nostrum deserunt repudiandae! Tempora quos atque repellat assumenda velit odio beatae </div>
+    <div class="box4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla earum eaque dignissimos ipsam distinctio repellendus facere architecto maiores omnis blanditiis.</div>
     
 </body>
 </html>
