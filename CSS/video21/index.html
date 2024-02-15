@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Specificity</title>
+    <style>
+        h1{
+            color: red !important;
+        }
+        .blueviolet{
+            color: blueviolet;
+        }
+        .blue{
+            color: blue;
+        }
+        h1.blueviolet{
+            color: aqua;
+        }
+    </style>
 </head>
 <body>
-    
+    <div>
+        <h1 style="color: green;" class="blue blueviolet">
+            CSS Specificity
+        </h1>
+        <!-- order of Specificity  -->
+        <!-- important > inline > id selector > class selector >= attribute selector > element selector or pseudo element> universal Selector > User Agent style sheet -->
+    </div>
 </body>
 </html>
