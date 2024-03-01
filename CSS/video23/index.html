@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display property</title>
+    <style>
+        .box{
+            border: 2px solid pink;
+            display: inline-block;
+            margin: 20px;
+            padding: 30px;
+            width: 40px;
+            background-color: yellowgreen;
+        /* ⁡⁣⁣⁡⁢⁣⁣if we set the display property to inline then it will restrict us to change the width top margin and top padding of the element⁡⁡ */
+        /* ⁡⁣⁢⁣𝙞𝙛 𝙬𝙚 𝙨𝙚𝙩 𝙩𝙝𝙚 𝙙𝙞𝙨𝙥𝙡𝙖𝙮 𝙥𝙧𝙤𝙥𝙚𝙧𝙩𝙮 𝙩𝙤 𝙞𝙣𝙡𝙞𝙣𝙚 𝙗𝙡𝙤𝙘𝙠 𝙩𝙝𝙚𝙣 𝙬𝙚 𝙢𝙖𝙠𝙚 𝙩𝙝𝙤𝙨𝙚 𝙘𝙝𝙖𝙣𝙜𝙚𝙨 𝙚𝙖𝙨𝙞𝙡𝙮⁡ */
+        }
+        .box1{
+            /* display: none; */
+            /* visibility: hidden; */
+            background-color: aqua;
+        }
+        .box2{
+            visibility: hidden;
+            background-color: purple;
+        }
+        /* visiblity hidden keep the space empty while the display none does'nt keep the space */
+    </style>
+</head>
+<body>
+    <div class="box box1">Hey I am a box</div>
+    <div class="box box2">Hey I am a box</div>
+    <div class="box box3">Hey I am a box</div>
+</body>
+</html>
