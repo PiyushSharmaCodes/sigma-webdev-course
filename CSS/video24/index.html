@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Shadow and Outlines</title>
+    <style>
+        /* Styles for a box with border, padding, and shadow */
+        .shadowedbox {
+            border: 2px solid rebeccapurple; /* Border style and color */
+            padding: 10px; /* Padding inside the box */
+            box-shadow: 10px 5px 5px greenyellow; /* Shadow offsets and color */
+        }
+
+        /* Styles for a paragraph with text shadow and dotted underline */
+        .para {
+            text-shadow: 3px 1px 2px red; /* Text shadow offset and color */
+            border-bottom: 3px dotted rgb(64, 43, 255); /* Dotted underline style and color */
+            display: inline-block; /* Ensure the underline only covers the text width */
+        }
+
+        /* Styles for a box with dotted outline */
+        .outline {
+            outline: 3px dotted green; /* Dotted outline style and color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Box with border, padding, and shadow -->
+    <div class="shadowedbox">hey i am box with shadow</div>
+
+    <!-- Paragraph with text shadow and dotted underline -->
+    <p class="para">I am paragraph with shadow</p>
+
+    <!-- Box with dotted outline -->
+    <div class="outline">box with outline</div>
+</body>
+</html>
