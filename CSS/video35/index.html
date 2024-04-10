@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on CSS Selectors</title>
+    <style>
+        .boxes > div::first-line{
+            background-color: red;
+        }
+        .box:nth-child(2){
+            background-color: antiquewhite;
+        }
+        .boxes > div::selection{
+            background-color: black;
+            color: white;
+        }
+        .box::before{
+            content: "Before a box";
+            color: greenyellow;
+        }
+        .box::after{
+            content: "After a box";
+            color: violet;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit illo doloremque molestiae fugit commodi doloribus natus illum aliquam qui perferendis quidem a autem eaque, minima iure praesentium iusto repudiandae, obcaecati suscipit maxime ducimus aliquid, perspiciatis quia? Amet, accusamus debitis. Culpa mollitia enim nesciunt explicabo, laboriosam odio eum voluptas nam, neque, facilis libero quibusdam voluptatibus asperiores facere veniam unde placeat odit! Laborum soluta quidem eum maxime nam at. Id tenetur explicabo recusandae quas nesciunt blanditiis voluptatem accusamus impedit sint itaque officiis minus, incidunt, fugit laborum perferendis praesentium iste eius, repellat veniam labore vel at? Natus pariatur nisi ut necessitatibus id nobis aut adipisci facilis. Eligendi laudantium error iste voluptate non alias temporibus ab facere ipsum fugiat ut corrupti debitis esse aperiam sunt harum incidunt, adipisci doloribus, nobis molestiae rem. Et consequuntur natus sequi eius similique at ex, laborum, corrupti nobis ea facere quod amet? Repellat labore officiis perferendis nisi suscipit ipsum tenetur beatae hic fugit voluptatibus sunt incidunt sit, at iusto nostrum, nobis voluptatem perspiciatis harum nemo quod ipsa et? Explicabo ad, unde dolorum dicta nisi molestias ea, qui nobis magnam enim est reprehenderit omnis, et error tempora labore? Assumenda in repellat itaque illo eius non laudantium quae, incidunt officia voluptatem aut rem maiores qui vitae laborum facilis cumque ad tempora eaque? Vero incidunt unde pariatur explicabo quas? Consequatur asperiores hic id rem. Placeat, distinctio vero</div>
+        <div class="box">I am a Box</div>
+        <div class="box">I am a Box</div>
+        <div class="box">I am a Box</div>
+        
+    </div>
+</body>
+</html>
