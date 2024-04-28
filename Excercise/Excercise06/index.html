@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar Using flexbox</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        .company-logo{
+            height: 50px;
+        }
+        .container {
+            width: 80vw;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .menu{
+            color: #4b6c71;
+            display: flex;
+            list-style: none;
+            width: 40vw;
+            justify-content: space-between;
+            align-content: center;
+            padding-top: 15px;
+            column-gap: 25px;
+        }
+        .lang-conver {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="container">
+            <li>
+                <img class="company-logo" src="image\images.jpeg" alt="Logo">
+            </li>
+            <ul class="menu">
+                <li>Products
+                    <i class='fas fa-chevron-down'></i>
+                </li>
+                <li>Pricing
+                    <i class='fas fa-chevron-down'></i>
+                </li>
+                <li>Resources
+                    <i class='fas fa-chevron-down'></i>
+                </li>
+                <li>About Us</li>
+                <li>Security and Compliances</li>
+                <li><img class="lang-conver" src="image\6125405.png" alt="language convertor"></li>
+            </ul>
+        </ul>
+    </nav>
+</body>
+
+</html>
