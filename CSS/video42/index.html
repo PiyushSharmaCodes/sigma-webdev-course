@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform</title>
+    <style>
+        .container{
+            background-color: black;
+            width: 50vw;
+            height: 60vh;
+        }
+        .box{
+            background-color: bisque;
+            text-align: center;
+            height: 50px;
+            width: 50px;
+            /* transform: rotate(60deg); */
+            /* transform: scale(1.5); */
+            /* transform: translate(20px,40px); */
+            transform-origin: 0% 0%;
+            transform: translate(40px,60px) rotate(60deg) scale(2.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Box</div>
+    </div>
+</body>
+</html>
