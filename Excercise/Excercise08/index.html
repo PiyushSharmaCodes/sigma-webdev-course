@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Animation</title>
+    <style>
+        .container {
+            height: 80vh;
+            width: 80vw;
+            background-color: teal;
+        }
+
+        .ball {
+            height: 100px;
+            width: 100px;
+            background-color: gold;
+            border-radius: 50%;
+            animation: UparNeeche 1s ease-out infinite alternate-reverse both ,
+                       Aage 10s linear infinite normal;
+            position: absolute;
+            bottom: 20vh;
+        }
+
+        @keyframes Aage {
+            from {
+                
+            }
+
+            to {
+                transform: translate(80vw);
+            }
+        }
+        @keyframes UparNeeche {
+            from{
+
+            }
+            to{
+                transform: translateY(-40vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+</body>
+
+</html>
