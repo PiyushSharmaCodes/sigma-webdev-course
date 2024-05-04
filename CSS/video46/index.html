@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animatons</title>
+    <style>
+        .container{
+            background-color: purple;
+            width: 80vw;
+            height: 80vh;
+
+        }
+        .box{
+            background-color: greenyellow;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: PiyushKaAnimantion 5s ease-in-out 1s infinite alternate both;
+            /* animation-play-state: paused; */
+        }
+        @keyframes PiyushKaAnimantion {
+            from{
+
+            }
+            to{
+                background-color: red;
+                transform:rotate(360deg)  scale(2.5) translate(20vw,20vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            Box
+        </div>
+    </div>
+</body>
+</html>
