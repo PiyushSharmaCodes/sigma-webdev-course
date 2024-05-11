@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS  Filters</title>
+    <style>
+        .img1{            
+            height: 450px;
+            filter: sepia(100%);
+        }
+        .img2{            
+            filter: brightness(1.2) saturate(1.5) contrast(1.1)
+        }
+        .img3{            
+            height: 450px;
+            filter: opacity(70%) grayscale(100%);
+
+        }
+        h1{
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color:greenyellow;
+            background-color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Filters</h1>
+    <div class="container">
+        <img class="img1" src="https://rukminim2.flixcart.com/image/850/1000/k0zlsi80/poster/g/n/8/medium-bollywood-poster-vidyut-jamwal-poster-p41890-original-imafknpyja8dxuhc.jpeg?q=90&crop=false" alt="">
+        <img src="https://s3images.zee5.com/wp-content/uploads/2023/11/ANI-20231103144136.jpg" alt="" class="img2">
+        <img src="https://media.assettype.com/filmcompanion%2F2023-07%2Fc7ccf3b7-74e7-4851-b008-11ae628e063e%2F0__12_.jpg" alt="" class="img3">
+    </div>
+</body>
+</html>
