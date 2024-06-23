@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container blue backgrnd">
+        <div class="box">Hey I am a box</div>
+        <script>
+            let div = document.createElement("div"); 
+            div.setAttribute("class","created");
+            div.setAttribute("style","color:red");
+            div.innerHTML="New div is created using javascript";
+            // document.querySelector(".container").append(div);
+            // document.querySelector(".container").before(div);
+            document.querySelector(".container").after(div);
+            // document.querySelector(".container").prepend(div);
+            let container = document.getElementsByClassName("container");
+            container[0].insertAdjacentHTML("afterBegin","<p>Hey this paragraph is added using insertAdjacentHTML method</p>");
+        </script>
+    </div>
+</body>
+</html>
