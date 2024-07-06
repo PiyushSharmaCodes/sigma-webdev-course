@@ -1,0 +1,31 @@
+.card{
+    display: flex;
+    border: 1px solid black;
+    width: 1000px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.image{
+    position:relative;
+}
+.image img{
+    width: 200px;
+}
+.image .duration{
+    background-color: #000000b0;
+    color: white;
+    padding: 2px;
+    font-size: 12px;
+    display: inline-block;
+    position:absolute;
+    bottom: 10px;
+    right: 5px;
+    border-radius: 3px;
+}
+.text h1{
+    font-size: 18px;
+}
+.text{
+    padding: 0px 10px;
+}
