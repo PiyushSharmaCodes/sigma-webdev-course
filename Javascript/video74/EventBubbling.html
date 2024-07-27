@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .container{
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            margin: 0 auto;
+            padding:30px 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .parent{
+            background-color: red;
+            padding: 5px;
+            
+        }
+        .child{
+            background-color: blue;
+            width: 60%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <div class="child">
+                I am a child
+            </div>
+        </div>
+    </div>
+    <script>
+        let child = document.querySelector(".child");
+        child.addEventListener("click",()=>{
+            alert("child is clicked");
+            event.stopPropagation();
+        })
+        let parent=document.querySelector(".parent");
+        parent.addEventListener("click",(e)=>{
+            alert("Parent is clicked");
+            clearInterval(1);
+            e.stopImmediatePropagation();
+        })
+        parent.addEventListener("click", (e) => {
+            parent.style.backgroundColor = "purple";
+            
+        });
+
+        let container=document.querySelector(".container");
+        container.addEventListener("click",()=>{
+            alert("Container is clicked");
+        })
+        let a = setInterval(()=>{
+            child.style.backgroundColor=randomColor();
+        },2000)
+        let b = setTimeout(()=>{
+            parent.style.backgroundColor=randomColor();
+        },5000)
+        console.log(a);
+        console.log(b);
+        function randomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+    </script>
+</body>
+</html>
