@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #0f0;
+}
+.terminal{
+    white-space: pre-wrap;
+    height: 400px;
+    width: 700px;
+    background-color: black;
+    margin: 20vh auto;
+    border-radius:10px;
+    color: #0f0;
+    font-family: monospace;
+    padding: 50px;
+    font-weight: 900;
+    font-size: 20px;
+}
+.blinking-dots::after {
+    display: inline-block;
+    font-weight: bold;
+    color: #0f0;
+    animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+p{
+    display: inline-block;
+}
+
+    </style>
+</head>
+<body>
+    <div class="terminal"> 
+    </div>
+    <script>
+        let messages = [
+    "Initializing Hacking",
+    "Reading your files",
+    "Password files detected",
+    "Sending all passwords and personal files to server",
+    "Cleaning up"
+];
+
+let dotCounter = 0;
+let currentDotsSpan;
+
+function showDots(dotsSpan) {
+    currentDotsSpan = dotsSpan;
+    dotsInterval = setInterval(() => {
+        switch (dotCounter % 4) {
+            case 0:
+                dotsSpan.textContent = '.';
+                break;
+            case 1:
+                dotsSpan.textContent = '..';
+                break;
+            case 2:
+                dotsSpan.textContent = '...';
+                break;
+            default:
+                dotsSpan.textContent = '';
+        }
+        dotCounter++;
+    }, 300);
+}
+
+function hideDots() {
+    if (currentDotsSpan) {
+        clearInterval(dotsInterval);
+        currentDotsSpan.remove();
+        currentDotsSpan = null;
+    }
+}
+
+function appendMessage(msg) {
+    let element = document.querySelector(".terminal");
+    let messageContainer = document.createElement("div");
+    let newMessage = document.createElement("p");
+    newMessage.textContent = msg;
+    let dots = document.createElement("span");
+    dots.classList.add("blinking-dots");
+    messageContainer.appendChild(newMessage);
+    messageContainer.appendChild(dots);
+    element.appendChild(messageContainer);
+    return dots;
+}
+
+function time() {
+    return Math.floor(Math.random() * (7)) + 1; 
+}
+
+function putmessage(msg) {
+    return new Promise((resolve) => {
+        let dots = appendMessage(msg);
+        showDots(dots);
+        setTimeout(() => {
+            hideDots();
+            resolve();
+        }, time() * 1000);
+    });
+}
+
+async function main() {
+    for (const msg of messages) {
+        await putmessage(msg);
+    }
+}
+
+main();
+
+    </script>
+</body>
+</html>
