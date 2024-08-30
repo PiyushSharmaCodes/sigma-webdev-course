@@ -1,0 +1,64 @@
+
+.border{
+    border: 2px solid red;
+    margin: 3px;
+}
+.flex{
+    display: flex;
+}
+.justify-content{
+    justify-content: center;
+}
+.align-items{
+    align-items: center;
+}
+.bg-grey{
+    background-color: #121212;
+}
+.bg-black{
+    background-color: black;
+}
+.rounded{
+    border-radius: 8px;
+}
+.invert{
+    filter: invert(1);
+}
+.m-1{
+    margin: 5px;
+}
+.p-1{
+        padding: 20px;
+}
+
+/* Scroll Bar Styles */
+/* Custom Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px; /* Thinner scrollbar for a sleeker look */
+    background-color: transparent; /* Transparent background */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light background to blend with dark theme */
+    border-radius: 8px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent light thumb */
+    border-radius: 8px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4); /* Brighter on hover */
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent; /* Match the track */
+}
+
+/* Custom Scrollbar Styles for Firefox */
+* {
+    scrollbar-width: thin; /* Thin scrollbar for a modern look */
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1); /* Light thumb and dark track */
+}
+
