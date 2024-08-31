@@ -46,7 +46,7 @@ function cleanArtist(filename) {
     }
 }
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:5500/Assets/songs");
+    let a = await fetch("http://127.0.0.1:5500/Assets/songs/");
     let response = await a.text();
     let div= document.createElement("div");
     div.innerHTML = response;
@@ -64,19 +64,22 @@ async function getSongs() {
     }));
     return combined;
 }
-function converTime(time) {
-    let minutes=Math.floor(time/60);
-        let seconds=Math.floor(time%60);
-        return `${minutes}:${seconds}`;
+function convertTime(time) {
+    let minutes = Math.floor(time / 60);
+    let seconds = Math.floor(time % 60);
+    if (minutes < 10) minutes = `0${minutes}`;
+    if (seconds < 10) seconds = `0${seconds}`;
+
+    return `${minutes}:${seconds}`;   
 }
 (async function main() {
     songs = await getSongs();
     audio.src=songs[0].url;
     let songName=document.querySelector(".songName");
     songName.innerText=songs[0].name;
-    let songLength = document.querySelector(".totalTime");
+    let songLength = document.querySelector(".duration");
     audio.addEventListener("loadeddata",()=>{
-        songLength.innerText=converTime(audio.duration);   
+        songLength.innerText=`${convertTime(audio.currentTime)}/${convertTime(audio.duration)}`;   
     })
 
     let songList=document.querySelector(".songList");
@@ -110,7 +113,6 @@ playNext.addEventListener("click",()=>{
     }else{
         currentIndex++;
     }
-    console.log(currentIndex);
     audio.src=songs[currentIndex].url;
     audio.play()
     playPauseButton.src = "Assets/SVG/pauseSong.svg";
@@ -133,6 +135,63 @@ playPrevious.addEventListener("click",()=>{
     isPlaying=true;
     songName.innerText=songs[currentIndex].name;
 })
+audio.addEventListener("timeupdate",()=>{
+    let songLength = document.querySelector(".duration");
+    songLength.innerText=`${convertTime(audio.currentTime)}/${convertTime(audio.duration)}`;
+    let progressBar=document.querySelector(".circle");
+    let percent=(audio.currentTime/audio.duration)*100;
+    progressBar.style.left=`${percent}%`;
+    let barHolder=document.querySelector(".seekBar");
+    barHolder.style.background = `linear-gradient(to right, #1fdf64 ${percent+1}%, white ${percent}%)`;
+    if(audio.currentTime===audio.duration){
+        playNext.click();
+    }
+})
+let barHolder=document.querySelector(".seekBar");
+barHolder.addEventListener("click",(e)=>{
+    let percent=(e.offsetX/e.target.offsetWidth)*100;
+    let progressBar=document.querySelector(".circle");
+    progressBar.style.left=`${percent}%`;
+    barHolder.style.background = `linear-gradient(to right, #1fdf64 ${percent+1}%, white ${percent}%)`;
+    audio.currentTime=(audio.duration*percent)/100;
+})
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+        console.log("Right arrow key was pressed!");
+        audio.currentTime = Math.min(audio.currentTime + 5, audio.duration);
+        updateProgressBar();
+    }
+    if (event.key === "ArrowLeft") {
+        console.log("Left arrow key was pressed!");
+        audio.currentTime = Math.max(audio.currentTime - 5, 0);
+        updateProgressBar();
+    }
+    if (event.key==='d') {
+        playNext.click();
+    }
+    if (event.key==='a') {
+        playPrevious.click();
+    }
+    if (event.key===' ') {
+        playPauseButton.click();
+    } 
+});
+function updateProgressBar() {
+    let percent = (audio.currentTime / audio.duration) * 100;
+    let progressBar = document.querySelector(".circle");
+    let barHolder = document.querySelector(".seekBar");
+    progressBar.style.left = `${percent}%`;
+    barHolder.style.background = `linear-gradient(to right, #1fdf64 ${percent+1}%, white ${percent}%)`;
+}
+let hamburger = document.querySelector(".hamburger");
+
+hamburger.addEventListener("click", () => {
+    let left = document.querySelector(".left");
+        left.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.classList.toggle('rotated');
+});
+
 })()
 
 
