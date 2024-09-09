@@ -3,6 +3,7 @@ let isPlaying = false;
 let songs=[];
 let audio=new Audio("");
 let songName;
+audio.volume=0.5
 playPauseButton.addEventListener("click", () => {
     if (isPlaying) {
         playPauseButton.src = "Assets/SVG/playSong.svg";
@@ -185,11 +186,70 @@ function updateProgressBar() {
 }
 let hamburger = document.querySelector(".hamburger");
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", (event) => {
     let left = document.querySelector(".left");
         left.classList.toggle('open');
         hamburger.classList.toggle('active');
         hamburger.classList.toggle('rotated');
+        event.stopImmediatePropagation()
+});
+let right=document.querySelector(".right");
+right.addEventListener("click",()=>{
+    let left = document.querySelector(".left");
+    if (left.classList.contains("open")) {
+        left.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.classList.toggle('rotated');
+    }
+})
+
+// Ensure these elements are correctly selected
+const volumeSlider = document.querySelector(".volume");
+const volumeLogo = document.querySelector(".volumeLogo");
+
+// Function to update the slider background
+function updateSliderBackground(slider) {
+    const value = (slider.value - slider.min) / (slider.max - slider.min);
+    slider.style.background = `linear-gradient(to right, #1fdf64 ${value * 100}%, #ddd ${value * 100}%)`;
+}
+
+// Event listener to handle slider input
+volumeSlider.addEventListener('input', (event) => {
+    const slider = event.target;
+    const value = parseFloat((slider.value - slider.min) / (slider.max - slider.min));
+
+    if (isNaN(value) || value < 0 || value > 1) {
+        console.error("Invalid volume value:", value);
+        return;
+    }
+
+    audio.volume = value; // Set audio volume
+    updateSliderBackground(slider); // Update slider gradient
+
+    // Update volumeLogo based on volume
+    if (value === 0) {
+        volumeLogo.src = "Assets/SVG/novolume.svg";
+        volumeLogo.alt = "novolumeLogo";
+    } else {
+        volumeLogo.src = "Assets/SVG/volume.svg";
+        volumeLogo.alt = "volumeLogo";
+    }
+});
+
+// Event listener to toggle volume using volumeLogo
+volumeLogo.addEventListener("click", () => {
+    if (volumeLogo.alt === "volumeLogo") {
+        volumeLogo.src = "Assets/SVG/novolume.svg";
+        volumeLogo.alt = "novolumeLogo";
+        audio.volume = 0;
+        volumeSlider.value = 0; // Update slider value
+    } else {
+        volumeLogo.src = "Assets/SVG/volume.svg";
+        volumeLogo.alt = "volumeLogo";
+        audio.volume = 0.5;
+        volumeSlider.value = 50; // Update slider value
+    }
+    updateSliderBackground(volumeSlider); // Update slider gradient after click
 });
 
 })()
