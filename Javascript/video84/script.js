@@ -252,7 +252,7 @@ volumeLogo.addEventListener("click", () => {
     updateSliderBackground(volumeSlider); // Update slider gradient after click
 });
 
-})()
+})();
 
 
 
